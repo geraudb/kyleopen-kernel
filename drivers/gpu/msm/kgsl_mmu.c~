@@ -22,7 +22,11 @@
 #include "kgsl_mmu.h"
 #include "kgsl_device.h"
 #include "kgsl_sharedmem.h"
+<<<<<<< HEAD
+#include "adreno_postmortem.h"
+=======
 #include "adreno.h"
+>>>>>>> 98c9adf... msm: kgsl: Remove extra interrupts when setting MMU state
 
 #define KGSL_MMU_ALIGN_SHIFT    13
 #define KGSL_MMU_ALIGN_MASK     (~((1 << KGSL_MMU_ALIGN_SHIFT) - 1))
@@ -479,6 +483,9 @@ EXPORT_SYMBOL(kgsl_mmu_putpagetable);
 
 void kgsl_setstate(struct kgsl_device *device, uint32_t flags)
 {
+<<<<<<< HEAD
+	struct kgsl_mmu *mmu = &device->mmu;
+=======
 	struct kgsl_device *device = mmu->device;
 	struct adreno_device *adreno_dev = ADRENO_DEVICE(device);
 
@@ -486,6 +493,7 @@ void kgsl_setstate(struct kgsl_device *device, uint32_t flags)
 		&& !adreno_is_a2xx(adreno_dev))
 		return;
 
+>>>>>>> 98c9adf... msm: kgsl: Remove extra interrupts when setting MMU state
 	if (KGSL_MMU_TYPE_NONE == kgsl_mmu_type)
 		return;
 	else if (device->ftbl->setstate)
