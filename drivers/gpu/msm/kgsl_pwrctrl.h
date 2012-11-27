@@ -36,6 +36,30 @@ struct kgsl_busy {
 	unsigned int no_nap_cnt;
 };
 
+/**
+ * struct kgsl_pwrctrl - Power control settings for a KGSL device
+ * @interrupt_num - The interrupt number for the device
+ * @ebi1_clk - Pointer to the EBI clock structure
+ * @grp_clks - Array of clocks structures that we control
+ * @power_flags - Control flags for power
+ * @pwrlevels - List of supported power levels
+ * @active_pwrlevel - The currently active power level
+ * @thermal_pwrlevel - maximum powerlevel constraint from thermal
+ * @max_pwrlevel - maximum allowable powerlevel per the user
+ * @min_pwrlevel - minimum allowable powerlevel per the user
+ * @num_pwrlevels - number of available power levels
+ * @interval_timeout - timeout in jiffies to be idle before a power event
+ * @strtstp_sleepwake - true if the device supports low latency GPU start/stop
+ * @gpu_reg - pointer to the regulator structure for gpu_reg
+ * @gpu_cx - pointer to the regulator structure for gpu_cx
+ * @pcl - bus scale identifier
+ * @nap_allowed - true if the device supports naps
+ * @idle_needed - true if the device needs a idle before clock change
+ * @irq_name - resource name for the IRQ
+ * @restore_slumber - Flag to indicate that we are in a suspend/restore sequence
+ * @clk_stats - structure of clock statistics
+ */
+
 struct kgsl_pwrctrl {
 	int interrupt_num;
 	int have_irq;
@@ -45,6 +69,9 @@ struct kgsl_pwrctrl {
 	struct kgsl_pwrlevel pwrlevels[KGSL_MAX_PWRLEVELS];
 	unsigned int active_pwrlevel;
 	int thermal_pwrlevel;
+	unsigned int default_pwrlevel;
+	unsigned int max_pwrlevel;
+	unsigned int min_pwrlevel;
 	unsigned int num_pwrlevels;
 	unsigned int interval_timeout;
 	bool strtstp_sleepwake;
