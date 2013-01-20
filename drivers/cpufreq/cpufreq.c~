@@ -586,6 +586,37 @@ static ssize_t show_scaling_setspeed(struct cpufreq_policy *policy, char *buf)
 	return policy->governor->show_setspeed(policy, buf);
 }
 
+<<<<<<< HEAD
+/**
+ * show_scaling_driver - show the current cpufreq HW/BIOS limitation
+ */
+static ssize_t show_bios_limit(struct cpufreq_policy *policy, char *buf)
+{
+	unsigned int limit;
+	int ret;
+	if (cpufreq_driver->bios_limit) {
+		ret = cpufreq_driver->bios_limit(policy->cpu, &limit);
+		if (!ret)
+			return sprintf(buf, "%u\n", limit);
+	}
+	return sprintf(buf, "%u\n", policy->cpuinfo.max_freq);
+}
+
+cpufreq_freq_attr_ro_perm(cpuinfo_cur_freq, 0400);
+cpufreq_freq_attr_ro(cpuinfo_min_freq);
+cpufreq_freq_attr_ro(cpuinfo_max_freq);
+cpufreq_freq_attr_ro(cpuinfo_transition_latency);
+cpufreq_freq_attr_ro(scaling_available_governors);
+cpufreq_freq_attr_ro(scaling_driver);
+cpufreq_freq_attr_ro(scaling_cur_freq);
+cpufreq_freq_attr_ro(bios_limit);
+cpufreq_freq_attr_ro(related_cpus);
+cpufreq_freq_attr_ro(affected_cpus);
+cpufreq_freq_attr_rw(scaling_min_freq);
+cpufreq_freq_attr_rw(scaling_max_freq);
+cpufreq_freq_attr_rw(scaling_governor);
+cpufreq_freq_attr_rw(scaling_setspeed);
+=======
 #ifdef CONFIG_CPU_FREQ_VDD_LEVELS
 
 extern ssize_t acpuclk_get_vdd_levels_str(char *buf);
@@ -682,6 +713,7 @@ define_one_rw(scaling_setspeed);
 #ifdef CONFIG_CPU_FREQ_VDD_LEVELS
 define_one_rw(vdd_levels);
 #endif //CONFIG_CPU_FREQ_VDD_LEVELS
+>>>>>>> dda4cea... cpufreq: bulk merge of a dozen cpu governors + skeleton for dynamic voltage control
 
 static struct attribute *default_attrs[] = {
 	&cpuinfo_min_freq.attr,
