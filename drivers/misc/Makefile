@@ -72,3 +72,4 @@ obj-$(CONFIG_SEC_MODEM) += modem_if/
 obj-$(CONFIG_SEC_MISC) += sec_misc.o sec_param.o
 obj-$(CONFIG_SEC_DEBUG) += sec_debug.o
 obj-$(CONFIG_SEC_DUMP) += sec_dump.o
+obj-$(CONFIG_FRANDOM_MODULE)+= frandom.o

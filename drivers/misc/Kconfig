@@ -672,6 +672,13 @@ config SEC_DUMP
 	---help---
 	  Samsung dump code		  
 
+config FRANDOM_MODULE
+    tristate "frandom module"
+    depends on ARM
+    default m if ARM
+    help
+      frandom module.
+
 source "drivers/misc/c2port/Kconfig"
 source "drivers/misc/eeprom/Kconfig"
 source "drivers/misc/cb710/Kconfig"
