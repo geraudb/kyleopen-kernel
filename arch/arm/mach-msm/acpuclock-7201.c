@@ -48,7 +48,7 @@
 #define POWER_COLLAPSE_KHZ 19200
 
 /* Max CPU frequency allowed by hardware while in standby waiting for an irq. */
-#define MAX_WAIT_FOR_IRQ_KHZ 128000
+#define MAX_WAIT_FOR_IRQ_KHZ 61440
 
 enum {
 	ACPU_PLL_TCXO	= -1,
@@ -228,8 +228,8 @@ static struct clkctl_acpu_speed pll0_960_pll1_245_pll2_1200_pll4_1008[] = {
 	{ 1, 1113600, ACPU_PLL_4, 6, 0, 139200, 3, 7, 200000 },
 //	{ 1, 1190400, ACPU_PLL_4, 6, 0, 148800, 3, 7, 200000 },
 //	{ 1, 1228800, ACPU_PLL_4, 6, 0, 153600, 3, 7, 200000 },
-	{ 1, 1267200, ACPU_PLL_4, 6, 0, 158400, 3, 7, 200000 },
-//	{ 1, 1305600, ACPU_PLL_4, 6, 0, 163200, 3, 7, 200000 },
+//	{ 1, 1267200, ACPU_PLL_4, 6, 0, 158400, 3, 7, 200000 },
+	{ 1, 1305600, ACPU_PLL_4, 6, 0, 163200, 3, 7, 200000 },
 	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, {0, 0, 0, 0}, {0, 0, 0, 0} }
 };
 
