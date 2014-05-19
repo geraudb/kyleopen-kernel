@@ -55,7 +55,7 @@ static ssize_t sec_fg_store(struct device *dev,
 
 
 #define max17048_CHECK_LOW_VCELL_SOC	2
-#define max17048_LOW_AVGVCELL	3350000
+#define max17048_LOW_AVGVCELL	3200000
 
 #define ADC_SAMPLE_COUNT	10
 struct sample_info {
