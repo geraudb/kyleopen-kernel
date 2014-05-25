@@ -372,7 +372,30 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
-		   -fno-delete-null-pointer-checks
+		   -fno-delete-null-pointer-checks 
+#		   -ffast-math \
+#		   -DNDEBUG -funsafe-loop-optimizations \
+#		   -fsection-anchors \
+#		   -fivopts \
+#		   -ftree-loop-im \
+#		   -ftree-loop-ivcanon \
+#		   -ffunction-sections \
+#		   -fdata-sections \
+#		   -funswitch-loops \
+#		   -frename-registers \
+#		   -frerun-cse-after-loop \
+#		   -fomit-frame-pointer \
+#		   -fgcse-after-reload \
+#		   -fgcse-sm \
+#		   -fgcse-las \
+#		   -fweb \
+#		   -ftracer \
+#		   -fstrict-aliasing \
+#		   -Wstrict-aliasing=3 \
+#		   -Wno-error=strict-aliasing \
+#		   -Wno-error=unused-parameter \
+#		   -Wno-error=unused-but-set-variable \
+#		   -Wno-error=maybe-uninitialized
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
@@ -565,7 +588,7 @@ all: vmlinux
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 else
-KBUILD_CFLAGS	+= -O2
+KBUILD_CFLAGS	+= -O3
 endif
 
 include $(srctree)/arch/$(SRCARCH)/Makefile
