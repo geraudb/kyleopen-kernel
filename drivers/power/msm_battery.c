@@ -89,7 +89,7 @@ static int fuel_alert_det;
 #define ONCRPC_CHG_GET_GENERAL_STATUS_PROC	12
 #define ONCRPC_CHARGER_API_VERSIONS_PROC	0xffffffff
 
-#define BATT_RPC_TIMEOUT	5000	/* 5 sec */
+#define BATT_RPC_TIMEOUT	15000	/* 15 sec */
 
 #define INVALID_BATT_HANDLE		-1
 
