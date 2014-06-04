@@ -128,7 +128,7 @@ static int __gpuclk_store(int max, struct device *dev,
 	if (pwr->pwrlevels[pwr->active_pwrlevel].gpu_freq >
 	    pwr->pwrlevels[pwr->thermal_pwrlevel].gpu_freq)
 		kgsl_pwrctrl_pwrlevel_change(device, pwr->thermal_pwrlevel);
-	else if (!max || (NULL == device->pwrscale.policy))
+	else if (!max)
 		kgsl_pwrctrl_pwrlevel_change(device, i);
 
 done:
@@ -283,6 +283,8 @@ static int kgsl_pwrctrl_gpubusy_show(struct device *dev,
 	return ret;
 }
 
+<<<<<<< HEAD
+=======
 static int kgsl_pwrctrl_gputop_show(struct device *dev,
 					struct device_attribute *attr,
 					char *buf)
@@ -328,6 +330,7 @@ static int kgsl_pwrctrl_gpu_available_frequencies_show(
 	return num_chars;
 }
 
+>>>>>>> 0e80b36... msm: kgsl: Add new sysfs node to list GPU clock frequencies
 DEVICE_ATTR(gpuclk, 0644, kgsl_pwrctrl_gpuclk_show, kgsl_pwrctrl_gpuclk_store);
 DEVICE_ATTR(max_gpuclk, 0644, kgsl_pwrctrl_max_gpuclk_show,
 	kgsl_pwrctrl_max_gpuclk_store);
@@ -346,8 +349,11 @@ static const struct device_attribute *pwrctrl_attr_list[] = {
 	&dev_attr_pwrnap,
 	&dev_attr_idle_timer,
 	&dev_attr_gpubusy,
+<<<<<<< HEAD
+=======
 	&dev_attr_gputop,
 	&dev_attr_gpu_available_frequencies,
+>>>>>>> 0e80b36... msm: kgsl: Add new sysfs node to list GPU clock frequencies
 	NULL
 };
 
@@ -840,9 +846,6 @@ _sleep(struct kgsl_device *device)
 				kgsl_pwrstate_to_str(device->state));
 		break;
 	}
-
-	kgsl_mmu_disable_clk_on_ts(&device->mmu, 0, false);
-
 	return 0;
 }
 
